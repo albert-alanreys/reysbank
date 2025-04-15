@@ -1,0 +1,30 @@
+{
+  "name": "reysbank",
+  "version": "1.0.0",
+  "description": "Educational online banking project with support for accounts, transactions, and analytics.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/albert-alanreys/reysbank.git"
+  },
+  "keywords": [
+    "online-bank",
+    "banking",
+    "finance",
+    "accounts",
+    "transactions",
+    "analytics",
+    "educational",
+    "nodejs",
+    "pet-project"
+  ],
+  "author": "Albert Alan-Reys",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/albert-alanreys/reysbank/issues"
+  },
+  "homepage": "https://github.com/albert-alanreys/reysbank#readme"
+}
