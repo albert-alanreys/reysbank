@@ -1,4 +1,6 @@
 import { BaseScreen } from '@/core/component/base-screen.component';
+import { renderService } from '@/core/services/render.service';
+import template from './not-found.template.html';
 
 export class NotFound extends BaseScreen {
 	constructor() {
@@ -6,6 +8,7 @@ export class NotFound extends BaseScreen {
 	}
 
 	render() {
-		return '<p>NotFound</p>';
+		const element = renderService.htmlToElement(template);
+		return element;
 	}
 }
