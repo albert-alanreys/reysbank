@@ -7,7 +7,7 @@ export class RenderService {
 	 * @param {string} templateHTML - The HTML string to convert into an HTMLElement.
 	 * @param {Array} [components=[]] - An array of component classes or instances to replace custom component tags.
 	 * @param {Object} [styles] - An object mapping original class names to scoped class names for styling.
-	 * @returns {HTMLElement} - The resulting HTMLElement with applied styles and replaced components.
+	 * @returns {HTMLElement} The resulting HTMLElement with applied styles and replaced components.
 	 */
 	htmlToElement(templateHTML, components = [], styles) {
 		const template = document.createElement('template');
