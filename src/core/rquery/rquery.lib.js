@@ -104,6 +104,21 @@ class RQuery {
 		}
 	}
 
+	/**
+	 * Get or set the text content of the selected element.
+	 *
+	 * @param {string} [textContent] - Optional text content to set. If not provided, the current text content will be returned.
+	 * @returns {RQuery | string} The current RQuery instance for method chaining when setting text content, or the current text content when getting.
+	 */
+	text(textContent) {
+		if (typeof textContent === 'undefined') {
+			return this.element.textContent;
+		} else {
+			this.element.textContent = textContent;
+			return this;
+		}
+	}
+
 	/* EVENTS */
 
 	/**
@@ -123,7 +138,7 @@ class RQuery {
 	 * Sets attributes and event listeners for an input element.
 	 * @param {Object} options - An object containing input options.
 	 * @param {function(Event): void} [options.onInput] - Function to be called when the input event occurs.
-	 * @param {Object} [options.rest] - Additional attributes to set on the input element.
+	 * @param {Object} [options.rest] - Optional attributes to set on the input element.
 	 * @throws {Error} If the current element is not an input element.
 	 * @returns {RQuery} The current RQuery instance for method chaining.
 	 */
