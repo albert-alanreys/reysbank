@@ -117,6 +117,61 @@ class RQuery {
 		this.element.style[property] = value;
 		return this;
 	}
+
+	/**
+	 * Adds a click event listener to the current element.
+	 *
+	 * @param {function(Event): void} callback - The function to execute when the element is clicked.
+	 * The callback receives the event object as its argument.
+	 * @returns {RQuery} The current RQuery instance for method chaining.
+	 */
+	click(callback) {
+		this.element.addEventListener('click', callback);
+		return this;
+	}
+
+	/**
+	 * Adds one or more CSS classes to the current element.
+	 *
+	 * @param {string | string[]} classNames - A single class name as a string or an array of class names to add.
+	 * If an array is provided, each class name in the array will be added to the element.
+	 * @returns {RQuery} The current RQuery instance for method chaining.
+	 * @throws {Error} Throws an error if the provided classNames is neither a string nor an array of strings.
+	 */
+	addClass(classNames) {
+		if (Array.isArray(classNames)) {
+			for (const className of classNames) {
+				this.element.classList.add(className);
+			}
+		} else if (typeof classNames === 'string') {
+			this.element.classList.add(classNames);
+		} else {
+			throw new Error(
+				'The "classNames" parameter must be a string or an array of strings.',
+			);
+		}
+
+		return this;
+	}
+
+	/**
+	 * Removes one or more CSS classes from the element.
+	 *
+	 * @param {string | string[]} classNames - The class name(s) to remove.
+	 * Can be a single class name as a string or an array of class names.
+	 * @returns {this} The current RQuery instance for method chaining.
+	 */
+	removeClass(classNames) {
+		if (Array.isArray(classNames)) {
+			for (const className of classNames) {
+				this.element.classList.remove(className);
+			}
+		} else {
+			this.element.classList.remove(classNames);
+		}
+
+		return this;
+	}
 }
 
 /**

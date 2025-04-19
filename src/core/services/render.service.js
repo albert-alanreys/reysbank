@@ -5,20 +5,21 @@ export class RenderService {
 	 * Converts an HTML string into an HTMLElement, applies scoped styles, and replaces custom component tags.
 	 *
 	 * @param {string} templateHTML - The HTML string to convert into an HTMLElement.
-	 * @param {Array} [components=[]] - An array of component classes or instances to replace custom component tags.
+	 * @param {Array} [components=[]] - An array of component classes or instances to replace custom tags.
 	 * @param {Object} [styles] - An object mapping original class names to scoped class names for styling.
 	 * @returns {HTMLElement} The resulting HTMLElement with applied styles and replaced components.
 	 */
-	htmlToElement(templateHTML, components = [], styles) {
+	htmlToElement(templateHTML, components = [], styles = null) {
 		const template = document.createElement('template');
 		template.innerHTML = templateHTML.trim();
 		const element = template.content.firstChild;
+
+		this.#replaceComponentTags(element, components);
 
 		if (styles) {
 			this.#applyModuleStyles(element, styles);
 		}
 
-		this.#replaceComponentTags(element, components);
 		return element;
 	}
 
@@ -33,38 +34,29 @@ export class RenderService {
 	 * @returns {void} This method does not return a value.
 	 */
 	#replaceComponentTags(parentElement, components) {
-		const componentTagPattern = /^component-/;
-		const allElements = parentElement.getElementsByTagName('*');
+		const instanceMap = new Map();
+		const componentInstances = components.map((Component) =>
+			Component instanceof Child ? Component : new Component(),
+		);
+		const componentElements = parentElement.querySelectorAll('*');
 
-		for (const element of allElements) {
-			const elementTagName = element.tagName.toLowerCase();
+		componentInstances.forEach((instance) => {
+			const name = instance.constructor.name.toLowerCase();
+			instanceMap.set(name, instance);
+		});
 
-			if (componentTagPattern.test(elementTagName)) {
-				const componentName = elementTagName
-					.replace(componentTagPattern, '')
-					.replace(/-/g, '');
+		componentElements.forEach((element) => {
+			const componentName = element.tagName
+				.toLowerCase()
+				.replace(/^component-/, '')
+				.replace(/-/g, '');
+			const instance = instanceMap.get(componentName);
 
-				const foundComponent = components.find((Component) => {
-					const instance =
-						Component instanceof Child ? Component : new Component();
-
-					return instance.constructor.name.toLowerCase() === componentName;
-				});
-
-				if (foundComponent) {
-					const componentContent =
-						foundComponent instanceof Child
-							? foundComponent.render()
-							: new foundComponent().render();
-					element.replaceWith(componentContent);
-				} else {
-					console.error(
-						`Component "${componentName}" not found
-            in the provided components array `,
-					);
-				}
+			if (instance) {
+				const content = instance.render();
+				element.replaceWith(content);
 			}
-		}
+		});
 	}
 
 	/**
