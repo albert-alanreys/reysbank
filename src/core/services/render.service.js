@@ -39,8 +39,6 @@ export class RenderService {
 		for (const element of allElements) {
 			const elementTagName = element.tagName.toLowerCase();
 
-			console.log(elementTagName);
-
 			if (componentTagPattern.test(elementTagName)) {
 				const componentName = elementTagName
 					.replace(componentTagPattern, '')

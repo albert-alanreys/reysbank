@@ -70,6 +70,21 @@ class RQuery {
 	}
 
 	/**
+	 * Gets or sets the inner HTML content of the current element.
+	 *
+	 * @param {string} [htmlContent] - The HTML content to set. If omitted, the method will return the current inner HTML of the element.
+	 * @returns {RQuery | string} The current RQuery instance for method chaining when setting HTML content, or the current inner HTML when getting.
+	 */
+	html(htmlContent) {
+		if (typeof htmlContent === 'undefined') {
+			return this.element.innerHTML;
+		} else {
+			this.element.innerHTML = htmlContent;
+			return this;
+		}
+	}
+
+	/**
 	 * Finds the first element that matches the specified selector within the current element.
 	 *
 	 * @param {string} selector - A CSS selector string to search for within the current element.
