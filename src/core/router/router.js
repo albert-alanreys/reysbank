@@ -9,10 +9,7 @@ export class Router {
 
 	constructor() {
 		this.#routes = ROUTES;
-		this.#init();
-	}
 
-	#init() {
 		this.#handleLinks();
 		this.#handleRouteChange();
 
@@ -21,22 +18,26 @@ export class Router {
 		});
 	}
 
+	navigate(path) {
+		if (path !== this.#getCurrentPath()) {
+			globalThis.history.pushState({}, '', path);
+			this.#handleRouteChange();
+		}
+	}
+
+	#getCurrentPath() {
+		return globalThis.location.pathname;
+	}
+
 	#handleLinks() {
 		document.addEventListener('click', (event) => {
 			const target = event.target.closest('a');
 
 			if (target) {
 				event.preventDefault();
-				this.#navigate(target.href);
+				this.navigate(target.href);
 			}
 		});
-	}
-
-	#navigate(path) {
-		if (path !== this.#getCurrentPath()) {
-			globalThis.history.pushState({}, '', path);
-			this.#handleRouteChange();
-		}
 	}
 
 	#handleRouteChange() {
@@ -47,10 +48,6 @@ export class Router {
 
 		this.#currentRoute = route;
 		this.#render();
-	}
-
-	#getCurrentPath() {
-		return globalThis.location.pathname;
 	}
 
 	#render() {
