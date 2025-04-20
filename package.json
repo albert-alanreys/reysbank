@@ -30,10 +30,9 @@
 	"homepage": "https://github.com/albert-alanreys/reysbank#readme",
 	"devDependencies": {
 		"@babel/core": "^7.26.10",
+		"@babel/eslint-parser": "^7.27.0",
 		"@babel/preset-env": "^7.26.9",
 		"@trivago/prettier-plugin-sort-imports": "^5.2.2",
-		"babel-core": "^6.26.3",
-		"babel-eslint": "^10.1.0",
 		"babel-loader": "^10.0.0",
 		"clean-webpack-plugin": "^4.0.0",
 		"css-loader": "^7.1.2",
