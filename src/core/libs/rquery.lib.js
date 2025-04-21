@@ -113,8 +113,10 @@ class RQuery {
 	/**
 	 * Get or set the text content of the selected element.
 	 *
-	 * @param {string} [textContent] - Optional text content to set. If not provided, the current text content will be returned.
-	 * @returns {RQuery | string} The current RQuery instance for method chaining when setting text content, or the current text content when getting.
+	 * @param {string} [textContent] - Optional text content to set. If not
+	 * provided, the current text content will be returned.
+	 * @returns {RQuery | string} The current RQuery instance for method
+	 * chaining when setting text content, or the current text content.
 	 */
 	text(textContent) {
 		if (typeof textContent === 'undefined') {

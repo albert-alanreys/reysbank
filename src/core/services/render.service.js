@@ -1,5 +1,8 @@
 import { Child } from '../component/child.component.js';
 
+/**
+ * A utility class for converting HTML strings to DOM elements.
+ */
 export class RenderService {
 	/**
 	 * Converts an HTML string into an HTMLElement, applies scoped styles, and replaces custom component tags.
