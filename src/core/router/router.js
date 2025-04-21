@@ -1,4 +1,4 @@
-import { $R } from '../rquery/rquery.lib.js';
+import { $R } from '../libs/rquery.lib.js';
 import { ROUTES } from './routes.data.js';
 import { Layout } from '@/components/layout/layout.component.js';
 

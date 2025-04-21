@@ -1,4 +1,4 @@
-import { $R } from '@/core/rquery/rquery.lib.js';
+import { $R } from '@/core/libs/rquery.lib.js';
 import { renderService } from '@/core/services/render.service.js';
 
 import * as styles from './layout.module.scss';

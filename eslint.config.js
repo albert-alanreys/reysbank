@@ -16,6 +16,7 @@ export default [
 				console: 'readonly',
 				document: 'readonly',
 				HTMLElement: 'readonly',
+				fetch: 'readonly',
 				require: 'readonly',
 				process: 'readonly',
 				module: 'readonly',

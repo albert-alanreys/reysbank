@@ -1,7 +1,13 @@
 import { formatCardNumber } from '@/utils/format/format-card-number.js';
 
 /**
- * A lightweight utility class for DOM manipulation.
+ * @module rquery
+ * @description
+ * `rquery` is a lightweight utility library for DOM manipulation, providing a simple API for interacting with the DOM.
+ */
+
+/**
+ * A class for DOM manipulation.
  */
 class RQuery {
 	/**
