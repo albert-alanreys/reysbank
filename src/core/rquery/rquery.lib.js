@@ -1,4 +1,4 @@
-import { formatCardNumberWithDashes } from '@/utils/format/format-card-number';
+import { formatCardNumber } from '@/utils/format/format-card-number.js';
 
 /**
  * A lightweight utility class for DOM manipulation.
@@ -201,7 +201,7 @@ class RQuery {
 		this.element.addEventListener('input', (event) => {
 			let value = event.target.value.replace(/[^0-9]/g, '');
 			if (limit) value = value.substring(0, limit);
-			event.target.value = formatCardNumberWithDashes(value);
+			event.target.value = formatCardNumber(value);
 		});
 
 		return this;

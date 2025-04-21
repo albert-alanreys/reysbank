@@ -1,5 +1,5 @@
-import { Child } from '@/core/component/child.component';
-import { renderService } from '@/core/services/render.service';
+import { Child } from '@/core/component/child.component.js';
+import { renderService } from '@/core/services/render.service.js';
 
 import * as styles from './card-info.module.scss';
 import templateHTML from './card-info.template.html';

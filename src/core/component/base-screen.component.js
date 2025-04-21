@@ -1,4 +1,4 @@
-import { getTitle } from '@/config/seo.config';
+import { getTitle } from '@/config/seo.config.js';
 
 /**
  * BaseScreen is an abstract class that serves as a foundation for creating screen components.

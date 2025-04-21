@@ -1,18 +1,22 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
-const { DefinePlugin } = require('webpack');
+import path, { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
+import TerserPlugin from 'terser-webpack-plugin';
+import webpack from 'webpack';
 
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 const mode = process.env.NODE_ENV;
 const isDev = mode === 'development';
 
 const plugins = [
-	new DefinePlugin({
+	new webpack.DefinePlugin({
 		'process.env': JSON.stringify(process.env),
 	}),
 	new CleanWebpackPlugin(),
@@ -29,7 +33,7 @@ const plugins = [
 	}),
 ];
 
-module.exports = {
+export default {
 	context: path.resolve(__dirname, 'src'),
 	mode,
 	entry: './index.js',
@@ -39,7 +43,6 @@ module.exports = {
 		assetModuleFilename: 'public/[name].[contenthash][ext][query]',
 	},
 	resolve: {
-		extensions: ['.js'],
 		alias: {
 			'@': path.resolve(__dirname, 'src/'),
 		},

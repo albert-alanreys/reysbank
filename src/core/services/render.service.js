@@ -1,4 +1,4 @@
-import { Child } from '../component/child.component';
+import { Child } from '../component/child.component.js';
 
 export class RenderService {
 	/**

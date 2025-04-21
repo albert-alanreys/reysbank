@@ -1,11 +1,11 @@
-import { $R } from '@/core/rquery/rquery.lib';
-import { renderService } from '@/core/services/render.service';
+import { $R } from '@/core/rquery/rquery.lib.js';
+import { renderService } from '@/core/services/render.service.js';
 
 import * as styles from './layout.module.scss';
 import templateHTML from './layout.template.html';
 
-import { Header } from './header/header.component';
-import { Child } from '@/core/component/child.component';
+import { Header } from './header/header.component.js';
+import { Child } from '@/core/component/child.component.js';
 
 export class Layout extends Child {
 	constructor({ router, children }) {

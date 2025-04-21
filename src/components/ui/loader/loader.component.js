@@ -1,6 +1,6 @@
-import { $R } from '@/core/rquery/rquery.lib';
-import { Child } from '@/core/component/child.component';
-import { renderService } from '@/core/services/render.service';
+import { $R } from '@/core/rquery/rquery.lib.js';
+import { Child } from '@/core/component/child.component.js';
+import { renderService } from '@/core/services/render.service.js';
 
 import * as styles from './loader.module.scss';
 import templateHTML from './loader.template.html';

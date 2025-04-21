@@ -1,13 +1,13 @@
-import { Child } from '@/core/component/child.component';
-import { renderService } from '@/core/services/render.service';
+import { Child } from '@/core/component/child.component.js';
+import { renderService } from '@/core/services/render.service.js';
 
 import * as styles from './header.module.scss';
 import templateHTML from './header.template.html';
 
-import { Logo } from './logo/logo.component';
-import { LogoutButton } from './logout-button/logout-button.component';
-import { Search } from './search/search.component';
-import { UserItem } from '@/components/ui/user-item/user-item.component';
+import { Logo } from './logo/logo.component.js';
+import { LogoutButton } from './logout-button/logout-button.component.js';
+import { Search } from './search/search.component.js';
+import { UserItem } from '@/components/ui/user-item/user-item.component.js';
 
 export class Header extends Child {
 	constructor({ router }) {
@@ -29,7 +29,7 @@ export class Header extends Child {
 						name: 'Albert Alan-Reys',
 					},
 					false,
-					() => alert('Hello'),
+					() => console.log('Hello'),
 				),
 			],
 			styles,
