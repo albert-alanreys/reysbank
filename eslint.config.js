@@ -17,6 +17,7 @@ export default [
 				document: 'readonly',
 				HTMLElement: 'readonly',
 				fetch: 'readonly',
+				localStorage: 'readonly',
 				module: 'readonly',
 				process: 'readonly',
 				require: 'readonly',
